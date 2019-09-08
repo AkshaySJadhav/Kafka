@@ -1,6 +1,8 @@
 Kafka Cheat Sheet
 -
 
+### Cheet-sheet for Normal Kafka:
+
 *Display Topic Information:*
 ```
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
@@ -44,12 +46,22 @@ $ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list c3199-node2:66
 
 *Change topic retention :*
 ```
-$ bin/kafka-topics.sh --zookeeper localhost:2181 --alter --topic test --config retention.ms=28800
-Updated config for topic "test". [old Method]
+[old Method] $ bin/kafka-topics.sh --zookeeper localhost:2181 --alter --topic test --config retention.ms=28800
+Updated config for topic "test"
 
-$ bin/kafka-configs.sh --zookeeper localhost:2181 --alter  --entity-type topics --entity-name test --add-config retention.ms=1000 [New Method]
+[New Method] $ bin/kafka-configs.sh --zookeeper localhost:2181 --alter  --entity-type topics --entity-name test --add-config retention.ms=1000 
 Completed Updating config for entity: topic 'test'.
+
 # This set retention of 8-hours on messages coming to topic test. After 8 hours message will be deleted.
 ```
 
-*
+*Show under replicated Partitions for topics :*
+```
+$ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --under-replicated-partitions
+	Topic: __consumer_offsets	Partition: 0	Leader: 1003	Replicas: 1002,1003,1001	Isr: 1003,1001
+	Topic: __consumer_offsets	Partition: 1	Leader: 1003	Replicas: 1003,1001,1002	Isr: 1003,1001
+	Topic: __consumer_offsets	Partition: 2	Leader: 1001	Replicas: 1001,1002,1003	Isr: 1001,1003
+	Topic: __consumer_offsets	Partition: 3	Leader: 1001	Replicas: 1002,1001,1003	Isr: 1001,1003
+```
+
+### Cheet-sheet for Kerbrose-Kafka:
