@@ -32,3 +32,20 @@ $bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test 
 > This is first message.
 > This is second message.
 ```
+
+*Get the Offset location :*
+```
+# earliest offset :
+$ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list c3199-node2:6667 --topic test --time -2
+
+# Last offset
+$ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list c3199-node2:6667 --topic test --time -1
+```
+
+*Change topic retention :*
+```
+$ bin/kafka-topics.sh --zookeeper localhost:2181 --alter --topic test --config retention.ms=28800
+Updated config for topic "test".
+
+# This set retention of 8-hours on messages coming to topic test. After 8 hours message will be deleted.
+```
