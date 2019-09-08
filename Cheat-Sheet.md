@@ -35,6 +35,11 @@ $bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test 
 > This is second message.
 ```
 
+*Consume max messages :*
+```
+$ bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test --max-messages 5
+```
+
 *Get the Offset location :*
 ```
 # earliest offset :
@@ -68,11 +73,5 @@ $ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --under-replicated-p
 ```
 $ bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic test
 ```
-
-*Consume max messages :*
-```
-$ bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test --max-messages 5
-```
-
 
 ### Cheet-sheet for Kerbrose-Kafka:
