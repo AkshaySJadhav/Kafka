@@ -64,4 +64,15 @@ $ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --under-replicated-p
 	Topic: __consumer_offsets	Partition: 3	Leader: 1001	Replicas: 1002,1001,1003	Isr: 1001,1003
 ```
 
+*Deleting Topic :*
+```
+$ bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic test
+```
+
+*Consume max messages :*
+```
+$ bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test --max-messages 5
+```
+
+
 ### Cheet-sheet for Kerbrose-Kafka:
