@@ -16,6 +16,11 @@ Topic:test	PartitionCount:3	ReplicationFactor:3	Configs:
 	Topic: test	Partition: 0	Leader: 1003	Replicas: 1003,1001,1002	Isr: 1003,1001,1002
 	Topic: test	Partition: 1	Leader: 1001	Replicas: 1001,1002,1003	Isr: 1001,1002,1003
 	Topic: test	Partition: 2	Leader: 1002	Replicas: 1002,1003,1001	Isr: 1002,1003,1001
-[root@c3199-node2 kafka-broker]# 
+```
+*Sending data to topic (Producing)*
+```
+$ bin/kafka-console-producer.sh --broker-list localhost:2181 --topic test
+> This is first message.
+> This is second message.
 
 ```
