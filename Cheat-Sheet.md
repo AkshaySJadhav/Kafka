@@ -32,5 +32,3 @@ $bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test 
 > This is first message.
 > This is second message.
 ```
-
-*
