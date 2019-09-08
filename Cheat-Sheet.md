@@ -45,7 +45,11 @@ $ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list c3199-node2:66
 *Change topic retention :*
 ```
 $ bin/kafka-topics.sh --zookeeper localhost:2181 --alter --topic test --config retention.ms=28800
-Updated config for topic "test".
+Updated config for topic "test". [old Method]
 
+$ bin/kafka-configs.sh --zookeeper localhost:2181 --alter  --entity-type topics --entity-name test --add-config retention.ms=1000 [New Method]
+Completed Updating config for entity: topic 'test'.
 # This set retention of 8-hours on messages coming to topic test. After 8 hours message will be deleted.
 ```
+
+*
