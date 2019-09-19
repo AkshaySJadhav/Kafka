@@ -28,6 +28,11 @@ Current partition replica assignment
 
 Save this to use as the --reassignment-json-file option during rollback
 Successfully started reassignment of partitions.
+```
+
+* Step 3: 
+```
+Verifying the replication factor :
 
 [root@c2199-node2 bin]# sh kafka-topics.sh --describe --zookeeper c2199-node2:2181 --topic Akshay
 Topic:Akshay	PartitionCount:2	ReplicationFactor:3	Configs:
