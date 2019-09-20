@@ -42,4 +42,22 @@ Topic:Akshay	PartitionCount:2	ReplicationFactor:3	Configs:
 ```
 
 
-# Per issue while partition reassignment
+#### Best Practise for Partition Reassignment:
+
+1. You would want to make sure that num.replica.fetchers and num.network.threads is optimized, and num.io.threads if there are a lot of log.dirs.
+
+2. The topics can remain active while the replication is happening, the flow of data doesn't need to be stopped. The new replica will be brought into the ISR, and then the old ones removed, but the leader will still be handling client connections.
+
+3. Performance of other topics could be affected if there is a network bottleneck, or all the network threads/replica fetchers  are busy.
+
+You would need to set the optimal values in Kafka to perform well while doing partition Reassignment and below are the configuration which needs to incrase :-
+
+* num.replica.fetchers (default=1) :- Number of fetcher threads used to replicate messages from a source broker. Increasing this value can increase the degree of I/O parallelism in the follower broker.
+* num.network.threads (Default=3) :- Adjust based on the number of producers + number of consumers + replication factor. This is the number of threads for Input Output operations.
+* num.io.threads (Default=8) :- should be greater than the number of disks dedicated for Kafka. I strongly recommend to start with same number of disks first.
+
+I would recommand to set the below values in Kafka configuration:
+
+num.replica.fetchers = 8
+num.network.threads = 12
+num.io.threads = 12 
