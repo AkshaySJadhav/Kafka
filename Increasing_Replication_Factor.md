@@ -58,6 +58,6 @@ You would need to set the optimal values in Kafka to perform well while doing pa
 
 I would recommand to set the below values in Kafka configuration:
 
-num.replica.fetchers = 8
-num.network.threads = 12
-num.io.threads = 12 
+* num.replica.fetchers = 8
+* num.network.threads = 12
+* num.io.threads = 12 
