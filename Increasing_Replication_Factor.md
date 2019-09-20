@@ -42,4 +42,4 @@ Topic:Akshay	PartitionCount:2	ReplicationFactor:3	Configs:
 ```
 
 
-## Perfoormace issue while partition reassignment
+# Per issue while partition reassignment
