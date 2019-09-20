@@ -38,9 +38,8 @@ Verifying the replication factor :
 Topic:Akshay	PartitionCount:2	ReplicationFactor:3	Configs:
 	Topic: Akshay	Partition: 0	Leader: 1003	Replicas: 1003,1004,1005	Isr: 1003,1004,1005
 	Topic: Akshay	Partition: 1	Leader: 1004	Replicas: 1004,1003,1005	Isr: 1005,1004,1003
-[root@c2199-node2 bin]#```
+[root@c2199-node2 bin]#
+```
 
-	      
-	      
-	    
-	    
+
+* Perfoormace issue while partition reassignment
