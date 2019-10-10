@@ -15,7 +15,7 @@ Topic:Akshay	PartitionCount:2	ReplicationFactor:2	Configs:
 [root@c2199-node2 bin]# cat increase-replication-factor.json 
 {"version":1,
 "partitions":[{"topic":"Akshay","partition":0,"replicas":[1003,1004,1005]},
-	      {"topic":"Akshay","partition":1,"replicas":[1004,1003,1005]}]
+	      {"topic":"Akshay","partition":1,"replicas":[1004,1003,1005]}]}
 ```
 
 * Step 2: 
