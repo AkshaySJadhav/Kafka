@@ -1,11 +1,17 @@
 ## Increasing replication factor in Kafka.
 
-  Increasing the replication factor of an existing partition is easy. Just specify the extra replicas in the custom reassignment json file and use it with the --execute option to increase the replication factor of the specified partitions.
+  Increasing the replication factor of an existing partition is easy. Just specify the extra replicas in the custom reassignment JSON file and use it with the --execute option to increase the replication factor of the specified partitions.
+
+Partition reassignment is totally depend on the the kafka disk and your network performance, you can get the `ethtool, ifconfig` to get the netowrk card speed. In such scanrio you can do following tuning only. 
+
+- export KAFKA_HEAP_OPTS="-Xmx1g -Xm1g" to 4 GB
+- eplica.socket.receive.buffer.bytes=65532 to 128K i.e. 131072 byte
+
 For instance, the following example increases the replication factor of partition 0 of topic foo from 1 to 3. Before increasing the replication factor, the partition's only replica existed on broker 5. As part of increasing the replication factor, we will add more replicas on brokers 6 and 7.
 
 * Step 1: 
 
-```The first step is to hand craft the custom reassignment plan in a json file.
+```The first step is to handcraft the custom reassignment plan in a JSON file.
 
 [root@c2199-node2 bin]# sh kafka-topics.sh --describe --zookeeper c2199-node2:2181 --topic Akshay
 Topic:Akshay	PartitionCount:2	ReplicationFactor:2	Configs:
