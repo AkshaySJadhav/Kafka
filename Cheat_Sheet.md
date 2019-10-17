@@ -26,13 +26,25 @@ $ bin/kafka-console-producer.sh --broker-list c3199-node2:6667 --topic test
 > This is second message.
 
 $ bin/kafka-console-producer.sh --broker-list c3199-node2:6667 --topic test < messages.txt 
+
+In SASL_PLAINTEXT or SASL_SSL, producer.config should have security.protocol=<SASL_PlainText>
+
+$ sh kafka-console-producer.sh --broker-list c3199-node2:6667 --topic test123 --producer.config producer.config 
+
 ```
 
 *Consuming the data :*
 ```
-$bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test --from-beginning
+$ bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test --from-beginning
 > This is first message.
 > This is second message.
+
+$ sh kafka-console-consumer.sh --broker-list c3199-node2:6667 --topic test123 --consumer.config consumer.config --from-beginning
+> This is first message.
+> This is second message.
+
+$ cat consumer.config
+security.protocol=SASL_PLAINTEXT
 ```
 
 *Consume max messages :*
