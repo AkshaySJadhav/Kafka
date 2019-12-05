@@ -17,13 +17,14 @@ KafkaClient {
 ```
 
 2) 
-
+```
 [root@c1199-node4 bin]# klist 
 klist: No credentials cache found (filename: /tmp/krb5cc_0)
 [root@c1199-node4 bin]#  export KAFKA_OPTS="-Djava.security.auth.login.config=/kafka_client_jaas.conf"
 [root@c1199-node4 bin]# sh  kafka-console-producer.sh --broker-list c1199-node4:6667 --topic Akshay --producer.config /tmp/producer.config
 >test1
 >Test2
+```
 
 Kafka_Debugging :
 ===============
