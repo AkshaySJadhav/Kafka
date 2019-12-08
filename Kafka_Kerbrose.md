@@ -68,12 +68,10 @@ security.protocol=SASL_PLAINTEXT
 
 Note : Same configuration goes for the consumer script. 
 
-### Kafka_Debugging :
+### Kafka_Debugging tricks :
 
+ - You can put the -x option to the kafka command as Kafka having the shells scrips for every tasks.
 
-- you can put the "-x" option to the kafka command as you are having the shells scrips.
-
-e.g 
 
 ```[root@c1199-node4 bin]# sh -x kafka-console-producer.sh --broker-list c1199-node4:6667 --topic Akshay --producer.config /tmp/producer.config
 + '[' x = x ']'
