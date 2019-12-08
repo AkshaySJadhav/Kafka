@@ -38,7 +38,8 @@ KafkaClient {
 
 Kafka client configuration without keytab, for producers:
 
-```KafkaClient {
+```
+KafkaClient {
      com.sun.security.auth.module.Krb5LoginModule required
      useTicketCache=true
      renewTicket=true
@@ -56,6 +57,8 @@ klist: No credentials cache found (filename: /tmp/krb5cc_0)
 >test1
 >Test2
 ```
+"unselect" command can be used for removing the exported variable value.
+
 You need to pass the security protocol as we are on secure cluster, in this case "/tmp/producer.config" is holding the protocol details.
 
 ```
