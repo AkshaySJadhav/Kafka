@@ -56,8 +56,17 @@ klist: No credentials cache found (filename: /tmp/krb5cc_0)
 >test1
 >Test2
 ```
+You need to pass the security protocol as we are on secure cluster, in this case "/tmp/producer.config" is holding the protocol details.
 
-Same goes for consuming the kafka messages. 
+```
+[root@c1199-node2 bin]# cat /tmp/producer.config 
+security.protocol=SASL_PLAINTEXT
+[root@c1199-node2 bin]# cat /tmp/consumer.config 
+security.protocol=SASL_PLAINTEXT
+[root@c1199-node2 bin]# 
+```
+
+Note : Same configuration goes for the consumer script. 
 
 ### Kafka_Debugging :
 
