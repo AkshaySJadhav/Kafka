@@ -15,7 +15,7 @@ fi
 exec $(dirname $0)/kafka-run-class.sh kafka.tools.ConsoleConsumer "$@"
 ````
 
-I have came across an issue where you need to import the JAAS files as $KAFAKA_OPTS variable instead of "KAFKA_CLIENT_KERBEROS_PARAMS". I was getting the "Could not login: the client is being asked for a password" error then I have unset the variable and exported $KAFAKA_OPTS and it worked.
+I have came across an issue where you need to import the JAAS files as $KAFAKA_OPTS variable instead of "KAFKA_CLIENT_KERBEROS_PARAMS". I was getting the "Could not login: the client is being asked for a password" error then I have unset the variable and exported $KAFAKA_OPTS and it worked. This happens because kafka client tool does not know from where it can pick up the kerberos ticket for kafka service So we need to set a variable which tells kafka toolkit from where it can access the kerberos ticket
 
 
 #### 1) Ambari adds the following settings to the file. (Note: serviceName=kafka is required for connections from other brokers.)
@@ -61,6 +61,7 @@ You need to pass the security protocol as we are on secure cluster, in this case
 ```
 [root@c1199-node2 bin]# cat /tmp/producer.config 
 security.protocol=SASL_PLAINTEXT
+
 [root@c1199-node2 bin]# cat /tmp/consumer.config 
 security.protocol=SASL_PLAINTEXT
 [root@c1199-node2 bin]# 
