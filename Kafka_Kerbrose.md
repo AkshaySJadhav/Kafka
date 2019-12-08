@@ -1,5 +1,5 @@
 
-Configuring Kafka Brokers on Secure cluster.
+Kafka Brokers on Secure cluster:
 ===============
 
    After enabling Kerberos, Ambari sets up a JAAS login configuration file for the Kafka client. Settings in this file will be used for any client (consumer, producer) that connects to a Kerberos-enabled Kafka cluster.
