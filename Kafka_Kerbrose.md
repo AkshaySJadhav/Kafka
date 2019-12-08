@@ -18,7 +18,7 @@ exec $(dirname $0)/kafka-run-class.sh kafka.tools.ConsoleConsumer "$@"
 I have came across an issue where you need to import the JAAS files as $KAFAKA_OPTS variable instead of "KAFKA_CLIENT_KERBEROS_PARAMS". I was getting the "Could not login: the client is being asked for a password" error then I have unset the variable and exported $KAFAKA_OPTS and it worked.
 
 
-1) Ambari adds the following settings to the file. (Note: serviceName=kafka is required for connections from other brokers.)
+#### 1) Ambari adds the following settings to the file. (Note: serviceName=kafka is required for connections from other brokers.)
 
 Kafka client configuration with keytab, for producers:
 
@@ -46,7 +46,7 @@ Kafka client configuration without keytab, for producers:
     };
  ```
 
-2) In this scenario we do not need kerbrose ticket to produce and consume the data. Make sure that you are not adding any extra unnecessary parameter in JAAS file. 
+#### 2) In this scenario we do not need kerbrose ticket to produce and consume the data. Make sure that you are not adding any extra unnecessary parameter in JAAS file. 
 
 ```
 [root@c1199-node4 bin]# klist 
