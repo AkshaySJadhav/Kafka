@@ -100,12 +100,14 @@ Kafka SASL_Plaintext & SASL_SSL
 ===============
 
 
-In order to consume and produce the data in SSL/SASL cluster, you would need to use the below commands :
+In order to consume and produce the data in SSL/SASL cluster, you would need to use the below commands and JAAS:
 
 
 For SASL_Plaintext :
++++++++++++++++++++
 
-1. Export the file as $KAFKA_OPTS
+1. Export the file as $KAFKA_OPTS, You can get the ticket and produce and consume if you don't want to use the JAAS.
+
 ```
 #export KAFKA_OPTS="-Djava.security.auth.login.config=/tmp/kafka_client_jaas.conf"
 
