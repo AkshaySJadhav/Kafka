@@ -98,3 +98,46 @@ Note : Same configuration goes for the consumer script.
 
 Kafka SASL_Plaintext & SASL_SSL
 ===============
+
+
+In order to consume and produce the data in SSL/SASL cluster, you would need to use the below commands :
+
+
+For SASL_Plaintext :
+
+```
+1. Export the file as $KAFKA_OPTS
+
+#export KAFKA_OPTS="-Djava.security.auth.login.config=/tmp/kafka_client_jaas.conf"
+
+#cat /tmp/kafka_client_jaas.conf
+++++
+KafkaClient {
+     com.sun.security.auth.module.Krb5LoginModule required
+     useKeyTab=true
+     keyTab="/etc/security/keytabs/kafka.service.keytab
+     storeKey=true
+     useTicketCache=false
+     serviceName="kafka"
+     principal="kafka/c1199-node4.example.com@HWX.COM";
+    };
+
+2. Create the consumer.config and producer.config.
+
+#cat /tmp/producer.config 
+security.protocol=SASL_PLAINTEXT
+
+#cat /tmp/consumer.config 
+security.protocol=SASL_PLAINTEXT
+   
+3. Try to produce and consumer the data from topic
+    
+  #sh kafka-console-producer.sh --broker-list c1199-node2:6667 --topic Akshay --producer.config /tmp/producer.config
+>Test1
+>Test2
+
+#sh kafka-console-consumer.sh --bootstrap-server c1199-node2:6667 --topic Akshay  --consumer.config /tmp/consumer.config --from-beginning
+>Test1
+>Test2
+
+```
