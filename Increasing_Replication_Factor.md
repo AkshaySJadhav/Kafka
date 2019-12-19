@@ -67,3 +67,4 @@ I would recommand to set the below values in Kafka configuration:
 * num.replica.fetchers = 8
 * num.network.threads = 12
 * num.io.threads = 12 
+
