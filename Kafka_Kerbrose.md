@@ -206,6 +206,5 @@ ssl.truststore.password=Centos
 ```
 #bin/kafka-console-producer --broker-list kafka1:9093 --topic test --producer.config /tmp/producer.config 
 #bin/kafka-console-consumer --bootstrap-server kafka1:9093 --topic test --consumer.config /tmp/consumer.config --from-beginning
-
 ```
 Referance : https://docs.confluent.io/current/kafka/authentication_ssl.html
