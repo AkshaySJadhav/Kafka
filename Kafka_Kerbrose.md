@@ -107,7 +107,7 @@ In order to consume and produce the data in SSL/SASL cluster, you would need to 
 
 +++++++++++++
 
-1. Export the variable as $KAFKA_OPTS, You can get the ticket and produce and consume if you don't want to use the JAAS.
+1. Export the variable as $KAFKA_OPTS, You can get the ticket and run producer/consumer if you don't want to use the JAAS.
 
 ```
 #export KAFKA_OPTS="-Djava.security.auth.login.config=/tmp/kafka_client_jaas.conf"
@@ -143,3 +143,69 @@ security.protocol=SASL_PLAINTEXT
 >Test1
 >Test2
 ```
+
+
+#### SASL_Plaintext :
+
++++++++++++++
+
+1. Export the variable as $KAFKA_OPTS, You can get the ticket and run producer/consumer if you don't want to use the JAAS.
+
+```
+#export KAFKA_OPTS="-Djava.security.auth.login.config=/tmp/kafka_client_jaas.conf"
+
+#cat /tmp/kafka_client_jaas.conf
+++++
+KafkaClient {
+     com.sun.security.auth.module.Krb5LoginModule required
+     useKeyTab=true
+     keyTab="/etc/security/keytabs/kafka.service.keytab
+     storeKey=true
+     useTicketCache=false
+     serviceName="kafka"
+     principal="kafka/c1199-node4.example.com@HWX.COM";
+    };
+```
+
+2. Create the consumer.config and producer.config.
+```
+#cat /tmp/producer.config 
+security.protocol=SASL_PLAINTEXT 
+ssl.truststore.location=<TrustStore_Location>
+ssl.truststore.password=<Password>
+
+#cat /tmp/consumer.config 
+security.protocol=SASL_PLAINTEXT 
+ssl.truststore.location=<TrustStore_Location>
+ssl.truststore.password=<Password>
+
+If you are having the "ssl.client.auth=true" then you need to mentioned the keystore part as well in configuration as below :
+
+#cat /tmp/producer.config 
+security.protocol=SASL_PLAINTEXT 
+ssl.truststore.location=<TrustStore_Location>
+ssl.truststore.password=<Password>
+ssl.keystore.location=/etc/server.keystore.jks
+ssl.keystore.password=Centos
+ssl.keystore.type=JKS 
+ssl.truststore.location=/etc/server.truststore.jks
+ssl.truststore.password=Centos
+
+#cat /tmp/consumer.config 
+security.protocol=SASL_PLAINTEXT 
+ssl.truststore.location=<TrustStore_Location>
+ssl.truststore.password=<Password>
+ssl.keystore.location=/etc/server.keystore.jks
+ssl.keystore.password=Centos
+ssl.keystore.type=JKS 
+ssl.truststore.location=/etc/server.truststore.jks
+ssl.truststore.password=Centos
+```
+3. Run the Producer and consumer.
+
+```
+#bin/kafka-console-producer --broker-list kafka1:9093 --topic test --producer.config /tmp/producer.config 
+#bin/kafka-console-consumer --bootstrap-server kafka1:9093 --topic test --consumer.config /tmp/consumer.config --from-beginning
+
+```
+Referance : https://docs.confluent.io/current/kafka/authentication_ssl.html
