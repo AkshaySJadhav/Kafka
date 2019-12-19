@@ -1,5 +1,5 @@
 ### Remove Zookeeper entries
-===============
+=====================
 
 1. Shutdown Kafka
 
@@ -26,8 +26,8 @@
 #ls /brokers/topics
 
 
-#### Remove the Data files
-============
+### Remove the Data files
+==================
 
 1. In the broker configuration, you should have the following property which defines where the data is written for the topic:
 <log.dirs>/<topic> -<partition>
