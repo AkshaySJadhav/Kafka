@@ -105,7 +105,7 @@ In order to consume and produce the data in SSL/SASL cluster, you would need to 
 
 #### SASL_Plaintext :
 
-+++++++++++++++++++
++++++++++++++
 
 1. Export the variable as $KAFKA_OPTS, You can get the ticket and produce and consume if you don't want to use the JAAS.
 
