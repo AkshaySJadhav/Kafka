@@ -1,6 +1,4 @@
-
-
-##### Remove Zookeeper entries
+### Remove Zookeeper entries
 ===============
 
 1. Shutdown Kafka
@@ -11,7 +9,7 @@
 
 
 3. Remove the topic from /brokers , /admin & /config folder.
-
+```
 #cd /usr/hdp/current/zookeeper-server/bin/
 #./zkCli.sh -server <FQDN>:2181
   
@@ -23,12 +21,12 @@
 
 [zk: FQDN:2181 (connected)] ls /admin/delete_topics
 [zk: FQDN:2181 (connected)] rmr /admin/delete_topics/<topic_to _be_deleted>
-
+```
 4. You can confirm the topic is deleted by running the following and confirming it no longer appears:
 #ls /brokers/topics
 
 
-##### Remove the Data files
+#### Remove the Data files
 ============
 
 1. In the broker configuration, you should have the following property which defines where the data is written for the topic:
