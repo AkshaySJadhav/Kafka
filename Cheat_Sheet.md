@@ -33,7 +33,7 @@ $ sh kafka-console-producer.sh --broker-list c3199-node2:6667 --topic test123 --
 
 ```
 
-*Consuming the data :*
+*Consuming the data :* 
 ```
 $ bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test --from-beginning
 > This is first message.
