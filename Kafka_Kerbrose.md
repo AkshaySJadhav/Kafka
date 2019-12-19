@@ -92,4 +92,9 @@ Note : Same configuration goes for the consumer script.
 + KAFKA_CLIENT_KERBEROS_PARAMS=-Djava.security.auth.login.config=/usr/hdf/current/kafka-broker/config/kafka_client_jaas.conf
 ++ dirname kafka-console-producer.sh
 + ./kafka-run-class.sh kafka.tools.ConsoleProducer --broker-list c1199-node4:6667 --topic Akshay --producer.config /tmp/producer.config
->```
+>
+```
+
+
+Kafka SASL_Plaintext & SASL_SSL
+===============
