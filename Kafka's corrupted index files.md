@@ -44,8 +44,8 @@ For understanding, the log file contains the actual messages structured in a mes
 
 This is why there is an index file. First of all, the structure of the messages within the index file describes only 2 fields, each of them 32bit long:
 
-4 Bytes: Relative Offset
-4 Bytes: Physical Position
+1. 4 Bytes: Relative Offset
+2. 4 Bytes: Physical Position
 
 As described before, the file name represents the base offset. In contrast to the log file where the offset is incremented for each message, the messages within the index files contain a relative offsets to the base offset. The second field represents the physical position of the related log message (base offset + relative offset) and thus, a lookup of O(1) becomes possible.
 
