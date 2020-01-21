@@ -28,7 +28,7 @@ when the kafka JVM process is not able shoutdown properly due to any reason.
 
 
 ### Solution :
-++++++++++++++
++++++++++++
 
 To resolve this issue, perform the following :
 
