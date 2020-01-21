@@ -1,6 +1,6 @@
 
 
-### Addressing Kafka's corrupted index files warnings after restarting brokers.
+## Addressing Kafka's corrupted index files warnings after restarting brokers.
 
 
 
@@ -27,7 +27,7 @@ when the kafka JVM process is not able shoutdown properly due to any reason.
 3. OS is overloaded and failed to shudown the process properly.
 
 
-## Solution :
+### Solution :
 
 To resolve this issue, perform the following :
 
@@ -35,6 +35,22 @@ Take backup of the index files mentioned in the log.
 Remove the index file manually from the Kafka logs directory.
 Restart the Kafka broker. The index file will be recreated on restarting the Broker.
 
+
+## Kafka log directory explained || .index/.log/.timeindex Files
+
+
+For understanding, the log file contains the actual messages structured in a message format. For each message within this file, the first 64bits describe the incremented offset. Now, looking up this file for messages with a specific offset becomes expensive since log files may grow in the range of gigabytes. And to be able to produce messages, the broker actually has to do such kind of lookups to determine the latest offset and be able to further increment incoming messages correctly.
+
+This is why there is an index file. First of all, the structure of the messages within the index file describes only 2 fields, each of them 32bit long:
+
+4 Bytes: Relative Offset
+4 Bytes: Physical Position
+
+As described before, the file name represents the base offset. In contrast to the log file where the offset is incremented for each message, the messages within the index files contain a relative offsets to the base offset. The second field represents the physical position of the related log message (base offset + relative offset) and thus, a lookup of O(1) becomes possible.
+
+After all there is to mention, that not every message within a log has it's corresponding message within the index. The configuration parameter index.interval.bytes, which is 4096 bytes by default, sets an index interval which basically describes how frequently (after how many bytes) an index entry will be added.
+
+Regarding the question to size of the .index file there is the following to say: The configuration parameter segment.index.bytes, which is 10MB by default, describes the size of this file. This space is reallocated and will shrink only after log rolls.
 
 
 Referance:
