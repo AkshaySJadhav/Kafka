@@ -39,6 +39,16 @@ Restart the Kafka broker. The index file will be recreated on restarting the Bro
 
 ## Kafka log directory explained || .index/.log/.timeindex Files
 
+You would be seeing the topics-parittions folder under the 
+
+
+
+
+
+
+
+
+
 
 For understanding, the log file contains the actual messages structured in a message format. For each message within this file, the first 64bits describe the incremented offset. Now, looking up this file for messages with a specific offset becomes expensive since log files may grow in the range of gigabytes. And to be able to produce messages, the broker actually has to do such kind of lookups to determine the latest offset and be able to further increment incoming messages correctly.
 
@@ -52,6 +62,12 @@ As described before, the file name represents the base offset. In contrast to th
 After all there is to mention, that not every message within a log has it's corresponding message within the index. The configuration parameter index.interval.bytes, which is 4096 bytes by default, sets an index interval which basically describes how frequently (after how many bytes) an index entry will be added.
 
 Regarding the question to size of the .index file there is the following to say: The configuration parameter segment.index.bytes, which is 10MB by default, describes the size of this file. This space is reallocated and will shrink only after log rolls.
+
+
+
+
+
+
 
 
 Referance:
