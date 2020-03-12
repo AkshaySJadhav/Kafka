@@ -128,7 +128,7 @@ Regarding the question to size of the .index file there is the following to say:
 
 
 
-### How to move the data from once Log Directory to another : 
+### How to move the data from one Log Directory to another : 
 
 Note : We are moving the topic "testing123 2 0" here :
 
