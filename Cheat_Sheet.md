@@ -85,3 +85,28 @@ $ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --under-replicated-p
 ```
 $ bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic test
 ```
+
+### Kafka Debug
+
+```
+1. Enable Debug on console :
+
+#/etc/kafka/conf/tools-log4j.properties 
+# Replace "log4j.rootLogger=WARN, stderr" with "log4j.rootLogger=DEBUG, stderr"
+
+2. Enable Debug at broker level :
+
+# Ambari >> Kafka >> Config >> Advanced kafka-log4j
+# Replace "log4j.rootLogger=INFO, stdout" with "log4j.rootLogger=DEBUG, stdout"
+
+3. Enable Debug for SSL at console level :
+
+For Client -
+# export KAFKA_HEAP_OPTS='-Djavax.net.debug=ssl'
+# Run the console producer command.
+
+For Server -
+# Open kafka-env.sh
+# Add KAFKA_HEAP_OPTS='-Djavax.net.debug=ssl' and save the file.
+
+```
