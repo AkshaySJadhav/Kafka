@@ -4,6 +4,11 @@
 We are going to setup single node Kafka cluster which includes zookeeper server as well on SSL. This repository contains the configuration files for zookeeper, zookeeper clients, Kafka brokers, producers, and consumers for launching a single node kafka cluster with SSL security. 
 
 
+In this setup, I have downloaded the Kafka 2.7.0 which comes with zookeeper.
+
+Download Link : https://downloads.apache.org/kafka/2.7.0/
+
+
 1. Create the certificate for Zookeeper :
 
 ```
