@@ -178,12 +178,10 @@ Here is the command to produce and consume the data from the specific topic. Mak
 >THis is my first message
 >END
 
-
 [root@sdc bin]# ./kafka-console-consumer.sh --topic ssltest --from-beginning --consumer.config ../config/consumer.properties --bootstrap-server localhost:9092
 END
 THis is my first message
 hello SSL
-
 
 # Cat producer.properties
 
@@ -207,5 +205,4 @@ ssl.truststore.password=admin
 ssl.keystore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.consumer.keystore.jks
 ssl.keystore.password=admin
 ssl.key.password=admin
-
 ```
