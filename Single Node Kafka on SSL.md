@@ -1,7 +1,7 @@
 # Setting up Kafka single node server on 2-Way-SSL.
 
 
-#### We are going to setup single node Kafka cluster which includes zookeeper server as well on SSL. This repository contains the configuration files for zookeeper, zookeeper clients, Kafka brokers, producers, and consumers for launching a single node kafka cluster with SSL security. 
+We are going to setup single node Kafka cluster which includes zookeeper server as well on SSL. This repository contains the configuration files for zookeeper, zookeeper clients, Kafka brokers, producers, and consumers for launching a single node kafka cluster with SSL security. 
 
 
 1. Create the certificate for Zookeeper :
