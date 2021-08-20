@@ -82,9 +82,9 @@ zookeeper.ssl.client.enable=true
 zookeeper.ssl.protocol=TLSv1.2
 
 zookeeper.ssl.truststore.location=/PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.zookeeper-client.truststore.jks
-zookeeper.ssl.truststore.password=vinodts
+zookeeper.ssl.truststore.password=admin
 zookeeper.ssl.keystore.location=/PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.zookeeper-client.keystore.jks
-zookeeper.ssl.keystore.password=vinodks
+zookeeper.ssl.keystore.password=admin
 ```
 
 Now, we are using the same zookeeper-client.properties to connect to the zookeper on SSL port to see if all the certificates are working or not.
@@ -148,18 +148,18 @@ zookeeper.ssl.client.enable=true
 zookeeper.ssl.protocol=TLSv1.2
 
 zookeeper.ssl.truststore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.broker0.truststore.jks
-zookeeper.ssl.truststore.password=vinodts
+zookeeper.ssl.truststore.password=admin
 zookeeper.ssl.keystore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.broker0.keystore.jks
-zookeeper.ssl.keystore.password=vinodks
+zookeeper.ssl.keystore.password=admin
 zookeeper.set.acl=true
 
 
 # Properties for SSL Kafka Security between Broker and its clients
 ssl.truststore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.broker0.truststore.jks
-ssl.truststore.password=vinodts
+ssl.truststore.password=admin
 ssl.keystore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.broker0.keystore.jks
-ssl.keystore.password=vinodks
-ssl.key.password=vinodks
+ssl.keystore.password=admin
+ssl.key.password=admin
 security.inter.broker.protocol=SSL
 ssl.client.auth=required
 ssl.protocol=TLSv1.2
@@ -191,10 +191,10 @@ bootstrap.servers=localhost:9092,localhost:9093
 security.protocol=SSL
 ssl.protocol=TLSv1.2
 ssl.truststore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.producer.truststore.jks
-ssl.truststore.password=vinodts
+ssl.truststore.password=admin
 ssl.keystore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.producer.keystore.jks
-ssl.keystore.password=vinodks
-ssl.key.password=vinodks1
+ssl.keystore.password=admin
+ssl.key.password=admin
 
 # Cat  consumer.properties
 
@@ -203,9 +203,9 @@ group.id=ssl-consumer
 security.protocol=SSL
 ssl.protocol=TLSv1.2
 ssl.truststore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.consumer.truststore.jks
-ssl.truststore.password=vinodts
+ssl.truststore.password=admin
 ssl.keystore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.consumer.keystore.jks
-ssl.keystore.password=vinodks
-ssl.key.password=vinodks1
+ssl.keystore.password=admin
+ssl.key.password=admin
 
 ```
