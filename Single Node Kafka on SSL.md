@@ -128,11 +128,11 @@ If you have muliple Kafka borker, you would need to create same set of certifica
 #Certificate for Consumer:
 ++++++++++++++++++++++++++
 #keytool -keystore kafka.consumer.truststore.jks -alias ca-cert -import -file ca-cert
-#keytool -keystore kafka.consumer.truststore.jks -alias consumer -validity 3650 -genkey -keyalg RSA -ext SAN=dns:localhost
-#keytool -keystore kafka.consumer.truststore.jks -alias consumer -certreq -file ca-request-consumer
+#keytool -keystore kafka.consumer.keystore.jks -alias consumer -validity 3650 -genkey -keyalg RSA -ext SAN=dns:localhost
+#keytool -keystore kafka.consumer.keystore.jks -alias consumer -certreq -file ca-request-consumer
 #openssl x509 -req -CA ca-cert -CAkey ca-key -in ca-request-consumer -out ca-signed-consumer -days 3650 -CAcreateserial
-#keytool -keystore kafka.consumer.truststore.jks -alias ca-cert -import -file ca-cert
-#keytool -keystore kafka.consumer.truststore.jks -alias consumer -import -file ca-signed-consumer
+#keytool -keystore kafka.consumer.keystore.jks -alias ca-cert -import -file ca-cert
+#keytool -keystore kafka.consumer.keystore.jks -alias consumer -import -file ca-signed-consumer
 ````
 
 All set! We are done with SSL certificate part. Now, we would be updating the configuration file server.properties so that Kafka Broker would pick the right protocol and certificates.
