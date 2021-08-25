@@ -125,7 +125,7 @@ If you have muliple Kafka borker, you would need to create same set of certifica
 #keytool -keystore kafka.producer.keystore.jks -alias ca-cert -import -file ca-cert
 #keytool -keystore kafka.producer.keystore.jks -alias producer -import -file ca-signed-producer
 
-#Certificate for Producer:
+#Certificate for Consumer:
 ++++++++++++++++++++++++++
 #keytool -keystore kafka.consumer.truststore.jks -alias ca-cert -import -file ca-cert
 #keytool -keystore kafka.consumer.truststore.jks -alias consumer -validity 3650 -genkey -keyalg RSA -ext SAN=dns:localhost
