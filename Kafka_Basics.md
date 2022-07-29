@@ -20,16 +20,17 @@ Q. I want to know how Kafka chooses the machines that will become the followers 
 For example, let's say there is 1 topic with 3 partitions {A,B,C} and replication factor is 3. The Kafka is running over 6 machines {1,2,...,6}.
 
 One possible assignment is:
-
+```
 1 2 3 4 5 6
 A B C
 C A B
 B C A
+```
 But the following is also possible:
-
+```
 1 2 3 4 5 6
 A B C
   A B C
     A B C
-
+```
 ANS: https://github.com/apache/kafka/blob/0.10.0/core/src/main/scala/kafka/admin/AdminUtils.scala#L47-L106
