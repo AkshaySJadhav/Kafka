@@ -52,7 +52,7 @@ ssl.clientAuth=need
 
 ```
 ==> Create Truststore
-#keytool -keystore kafka.zookeeper.client.jks -alias ca-cert -import -file ca-cert
+#keytool -keystore kafka.zookeeper-client.truststore.jks -alias ca-cert -import -file ca-cert
 
 ==> Create Keystore (Make sure you enter the SAN in firstName field i.e localhost)
 #keytool -keystore kafka.zookeeper-client.keystore.jks -alias zookeeper-client -validity 3650 -genkey -keyalg RSA -ext SAN=dns:localhost
