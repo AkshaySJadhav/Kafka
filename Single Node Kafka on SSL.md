@@ -206,3 +206,6 @@ ssl.keystore.location=PATH-TO-YOUR-KAFKA-DIR/ssl/kafka.consumer.keystore.jks
 ssl.keystore.password=admin
 ssl.key.password=admin
 ```
+
+
+Use export KAFKA_OPTS=-Djavax.net.debug=all to debug SSL issues.
