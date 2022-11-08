@@ -21,25 +21,25 @@ Topic:test	PartitionCount:3	ReplicationFactor:3	Configs:
 ```
 *Sending data to topic (Producing):*
 ```
-$ bin/kafka-console-producer.sh --broker-list c3199-node2:6667 --topic test
+$ bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test
 > This is first message.
 > This is second message.
 
-$ bin/kafka-console-producer.sh --broker-list c3199-node2:6667 --topic test < messages.txt 
+$ bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic test < messages.txt 
 
 In SASL_PLAINTEXT or SASL_SSL, producer.config should have security.protocol=<SASL_PlainText>
 
-$ sh kafka-console-producer.sh --broker-list c3199-node2:6667 --topic test123 --producer.config producer.config 
+$ sh kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic test123 --producer.config producer.config 
 
 ```
 
 *Consuming the data :* 
 ```
-$ bin/kafka-console-consumer.sh --bootstrap-server c3199-node2:6667 --topic test --from-beginning
+$ bin/kafka-console-consumer.sh --from-beginning --bootstrap-server localhost:9092 --topic jdbc3
 > This is first message.
 > This is second message.
 
-$ sh kafka-console-consumer.sh --broker-list c3199-node2:6667 --topic test123 --consumer.config consumer.config --from-beginning
+$ sh kafka-console-consumer.sh --broker-list localhost:9092 --topic test123 --consumer.config consumer.config --from-beginning
 > This is first message.
 > This is second message.
 
