@@ -124,6 +124,10 @@ Creating another consumer in same group my-first-application: [You need to run t
 #kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-topic --group my-first-application
 
 You can run the same command and create N number of consumers in the same group.
+
+Consumer group describe command:-
+#sh kafka-consumer-groups.sh --describe --bootstrap-server localhost:9092 --group testing
+
 ```
 
 ### List existing topics
