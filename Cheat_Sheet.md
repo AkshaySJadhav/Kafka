@@ -111,6 +111,19 @@ For Server -
 
 ```
 
+###Example of Creating a Consumer Group
+
+```
+Creating topic:
+#kafka-topics.sh --bootstrap-server localhost:9092 --topic my-topic --create --partitions 3 --replication-factor 1
+
+Creating Consumer group my-first-application:
+#kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-topic --group my-first-application
+
+Creating another consumer in same group my-first-application: [You need to run this command in another terminal so that consumer will subscribe to the group]
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-topic --group my-first-application  
+```
+
 ### List existing topics
  `bin/kafka-topics.sh --zookeeper localhost:2181 --list`
 
